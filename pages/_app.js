@@ -1,5 +1,5 @@
-import Headers from '../components/Headers';
-import SiderContent from '../components/SiderContent';
+import Headers from '../common/Headers';
+import SiderContent from '../common/SiderContent';
 
 
 import { Layout } from 'antd';

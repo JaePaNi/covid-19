@@ -1,14 +1,222 @@
-import SiderContent from '../components/SiderContent';
-
-import Link from 'next/link';
-
-import { Row, Col, Layout } from 'antd';
-const { Sider, Content } = Layout;
+// IMPORT COMPONENTS
 
 export default function Home() {
   return (
-    <>
-      <div>코로나19 감염 현황</div>
-    </>
+    <div>
+      <p>index</p>
+    </div>
   )
+}
+
+const dummyData = {
+  infectionStatus: [
+      {
+          "accDefRate": "1.0300253506",
+          "accExamCnt": "2761411",
+          "accExamCompCnt": "2731292",
+          "careCnt": "2108",
+          "clearCnt": "25537",
+          "createDt": "2020-11-13 09:35:49.753",
+          "deathCnt": "488",
+          "decideCnt": "28133",
+          "examCnt": "30119",
+          "resutlNegCnt": "2703159",
+          "seq": "321",
+          "stateDt": "20201113",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0270951388",
+          "accExamCnt": "2749772",
+          "accExamCompCnt": "2720488",
+          "careCnt": "2051",
+          "clearCnt": "25404",
+          "createDt": "2020-11-12 09:39:23.831",
+          "deathCnt": "487",
+          "decideCnt": "27942",
+          "examCnt": "29284",
+          "resutlNegCnt": "2692546",
+          "seq": "320",
+          "stateDt": "20201112",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0266093418",
+          "accExamCnt": "2736534",
+          "accExamCompCnt": "2707846",
+          "careCnt": "2046",
+          "clearCnt": "25266",
+          "createDt": "2020-11-11 09:35:35.369",
+          "deathCnt": "487",
+          "decideCnt": "27799",
+          "examCnt": "28688",
+          "resutlNegCnt": "2680047",
+          "seq": "319",
+          "stateDt": "20201111",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0256648016",
+          "accExamCnt": "2723960",
+          "accExamCompCnt": "2696105",
+          "careCnt": "2008",
+          "clearCnt": "25160",
+          "createDt": "2020-11-10 09:37:02.955",
+          "deathCnt": "485",
+          "decideCnt": "27653",
+          "examCnt": "27855",
+          "resutlNegCnt": "2668452",
+          "seq": "318",
+          "stateDt": "20201110",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0267955132",
+          "accExamCnt": "2709199",
+          "accExamCompCnt": "2683397",
+          "careCnt": "2044",
+          "clearCnt": "25029",
+          "createDt": "2020-11-09 09:36:39.787",
+          "deathCnt": "480",
+          "decideCnt": "27553",
+          "examCnt": "25802",
+          "resutlNegCnt": "2655844",
+          "seq": "317",
+          "stateDt": "20201109",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0244536147",
+          "accExamCnt": "2702880",
+          "accExamCompCnt": "2677232",
+          "careCnt": "1981",
+          "clearCnt": "24968",
+          "createDt": "2020-11-08 09:34:44.609",
+          "deathCnt": "478",
+          "decideCnt": "27427",
+          "examCnt": "25648",
+          "resutlNegCnt": "2649805",
+          "seq": "316",
+          "stateDt": "20201108",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0214778407",
+          "accExamCnt": "2697249",
+          "accExamCompCnt": "2671032",
+          "careCnt": "1897",
+          "clearCnt": "24910",
+          "createDt": "2020-11-07 09:40:32.259",
+          "deathCnt": "477",
+          "decideCnt": "27284",
+          "examCnt": "26217",
+          "resutlNegCnt": "2643748",
+          "seq": "315",
+          "stateDt": "20201107",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0221052097",
+          "accExamCnt": "2686314",
+          "accExamCompCnt": "2660685",
+          "careCnt": "1898",
+          "clearCnt": "24821",
+          "createDt": "2020-11-06 09:24:23.717",
+          "deathCnt": "476",
+          "decideCnt": "27195",
+          "examCnt": "25629",
+          "resutlNegCnt": "2633490",
+          "seq": "314",
+          "stateDt": "20201106",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0212773026",
+          "accExamCnt": "2673706",
+          "accExamCompCnt": "2648644",
+          "careCnt": "1840",
+          "clearCnt": "24735",
+          "createDt": "2020-11-05 09:51:34.898",
+          "deathCnt": "475",
+          "decideCnt": "27050",
+          "examCnt": "25062",
+          "resutlNegCnt": "2621594",
+          "seq": "313",
+          "stateDt": "20201105",
+          "stateTime": "00:00",
+          "updateDt": "2020-11-05 09:52:58.741"
+      },
+      {
+          "accDefRate": "1.0206576560",
+          "accExamCnt": "2662260",
+          "accExamCompCnt": "2638005",
+          "careCnt": "1835",
+          "clearCnt": "24616",
+          "createDt": "2020-11-04 09:37:25.13",
+          "deathCnt": "474",
+          "decideCnt": "26925",
+          "examCnt": "24255",
+          "resutlNegCnt": "2611080",
+          "seq": "312",
+          "stateDt": "20201104",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0215911013",
+          "accExamCnt": "2649859",
+          "accExamCompCnt": "2624044",
+          "careCnt": "1825",
+          "clearCnt": "24510",
+          "createDt": "2020-11-03 09:30:37.135",
+          "deathCnt": "472",
+          "decideCnt": "26807",
+          "examCnt": "25815",
+          "resutlNegCnt": "2597237",
+          "seq": "311",
+          "stateDt": "20201103",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0237728857",
+          "accExamCnt": "2636650",
+          "accExamCompCnt": "2611126",
+          "careCnt": "1869",
+          "clearCnt": "24395",
+          "createDt": "2020-11-02 09:35:09.923",
+          "deathCnt": "468",
+          "decideCnt": "26732",
+          "examCnt": "25524",
+          "resutlNegCnt": "2584394",
+          "seq": "310",
+          "stateDt": "20201102",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+      {
+          "accDefRate": "1.0221460500",
+          "accExamCnt": "2630630",
+          "accExamCompCnt": "2605792",
+          "careCnt": "1812",
+          "clearCnt": "24357",
+          "createDt": "2020-11-01 09:41:40.025",
+          "deathCnt": "466",
+          "decideCnt": "26635",
+          "examCnt": "24838",
+          "resutlNegCnt": "2579157",
+          "seq": "309",
+          "stateDt": "20201101",
+          "stateTime": "00:00",
+          "updateDt": "null"
+      },
+  ],
 }
