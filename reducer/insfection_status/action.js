@@ -1,15 +1,15 @@
-import {testApi} from "./api";
-import {TEST, TEST_SUCCESS, TEST_ERROR} from "../actionType";
+import {infctionStatusApi} from "./api";
+import {INFECTION_STATUS, INFECTION_STATUS_SUCCESS, INFECTION_STATUS_ERROR} from "../actionType";
 
-export const onClick = () => async (dispatch) => {
-    const data = await testApi();
+export const infctionStatus = () => async (dispatch) => {
+    const data = await infctionStatusApi();
     const parseJson = JSON.parse(data.data);
     const payload = parseJson.response;
 
-    dispatch({type: TEST});
+    dispatch({type: INFECTION_STATUS});
     try {
-        dispatch({type: TEST_SUCCESS, payload});
+        dispatch({type: INFECTION_STATUS_SUCCESS, payload});
     } catch (e) {
-        dispatch({type: TEST_ERROR, error: e});
+        dispatch({type: INFECTION_STATUS_ERROR, e});
     }
 }

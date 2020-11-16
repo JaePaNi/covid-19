@@ -1,4 +1,4 @@
-import {INFECTION_STATUS, INFECTION_STATUS_SUCCESS, INFECTION_STATUS_ERROR} from "../actionType";
+import {FOREIGN_STATUS, FOREIGN_STATUS_SUCCESS, FOREIGN_STATUS_ERROR} from "../actionType";
 
 const initialState = {
     status: false,
@@ -7,20 +7,19 @@ const initialState = {
             "items": {
                 "item": [
                     {
-                        "accDefRate": {"_text": null},
-                        "accExamCnt": {"_text": null},
-                        "accExamCompCnt": {"_text": null},
-                        "careCnt": {"_text": null},
-                        "clearCnt": {"_text": null},
+                        "areaNm": {"_text": null},
+                        "areaNmCn": {"_text": null},
+                        "areaNmEn": {"_text": null},
                         "createDt": {"_text": null},
-                        "deathCnt": {"_text": null},
-                        "decideCnt": {"_text": null},
-                        "examCnt": {"_text": null},
-                        "resutlNegCnt": {"_text": null},
+                        "natDeathCnt": {"_text": null},
+                        "natDeathRate": {"_text": null},
+                        "natDefCnt": {"_text": null},
+                        "nationNm": {"_text": null},
+                        "nationNmCn": {"_text": null},
+                        "nationNmEn": {"_text": null},
                         "seq": {"_text": null},
-                        "stateDt": {"_text": null},
-                        "stateTime": {"_text": null},
-                        "updateDt": {"_text": null}
+                        "stdDay": {"_text": null},
+                        "updateDt": {"_text": null},
                     }
                 ]
             },
@@ -33,14 +32,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case INFECTION_STATUS : {
-            console.log('INFECTION_STATUS TEST');
+        case FOREIGN_STATUS : {
+            console.log('FOREIGN_STATUS TEST');
             return {
                 ...state,
             }
         }
-        case INFECTION_STATUS_SUCCESS : {
-            console.log('INFECTION_STATUS TEST_SUCCESS');
+        case FOREIGN_STATUS_SUCCESS : {
+            console.log('FOREIGN_STATUS TEST_SUCCESS');
             console.log('###payload### ::', action.payload);
             return {
                 ...state,
@@ -50,8 +49,8 @@ const reducer = (state = initialState, action) => {
                 }
             }
         }
-        case INFECTION_STATUS_ERROR : {
-            console.log('INFECTION_STATUS TEST_ERROR');
+        case FOREIGN_STATUS_ERROR : {
+            console.log('FOREIGN_STATUS TEST_ERROR');
             return {
                 ...state,
             }

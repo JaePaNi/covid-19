@@ -1,4 +1,4 @@
-import {INFECTION_STATUS, INFECTION_STATUS_SUCCESS, INFECTION_STATUS_ERROR} from "../actionType";
+import {REGION_STATUS, REGION_STATUS_SUCCESS, REGION_STATUS_ERROR} from "../actionType";
 
 const initialState = {
     status: false,
@@ -7,20 +7,21 @@ const initialState = {
             "items": {
                 "item": [
                     {
-                        "accDefRate": {"_text": null},
-                        "accExamCnt": {"_text": null},
-                        "accExamCompCnt": {"_text": null},
-                        "careCnt": {"_text": null},
-                        "clearCnt": {"_text": null},
                         "createDt": {"_text": null},
                         "deathCnt": {"_text": null},
-                        "decideCnt": {"_text": null},
-                        "examCnt": {"_text": null},
-                        "resutlNegCnt": {"_text": null},
+                        "defCnt": {"_text": null},
+                        "gubun": {"_text": null},
+                        "gubunCn": {"_text": null},
+                        "gubunEn": {"_text": null},
+                        "incDec": {"_text": null},
+                        "isolClearCnt": {"_text": null},
+                        "isolIngCnt": {"_text": null},
+                        "localOccCnt": {"_text": null},
+                        "overFlowCnt": {"_text": null},
+                        "qurRate": {"_text": null},
                         "seq": {"_text": null},
-                        "stateDt": {"_text": null},
-                        "stateTime": {"_text": null},
-                        "updateDt": {"_text": null}
+                        "stdDay": {"_text": null},
+                        "updateDt": {"_text": null},
                     }
                 ]
             },
@@ -33,14 +34,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case INFECTION_STATUS : {
-            console.log('INFECTION_STATUS TEST');
+        case REGION_STATUS : {
+            console.log('REGION_STATUS TEST');
             return {
                 ...state,
             }
         }
-        case INFECTION_STATUS_SUCCESS : {
-            console.log('INFECTION_STATUS TEST_SUCCESS');
+        case REGION_STATUS_SUCCESS : {
+            console.log('REGION_STATUS TEST_SUCCESS');
             console.log('###payload### ::', action.payload);
             return {
                 ...state,
@@ -50,8 +51,8 @@ const reducer = (state = initialState, action) => {
                 }
             }
         }
-        case INFECTION_STATUS_ERROR : {
-            console.log('INFECTION_STATUS TEST_ERROR');
+        case REGION_STATUS_ERROR : {
+            console.log('REGION_STATUS TEST_ERROR');
             return {
                 ...state,
             }

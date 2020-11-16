@@ -6,7 +6,6 @@ import withRedux from 'next-redux-wrapper';
 import {createStore, compose, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 
-
 import {Layout} from 'antd';
 
 const MyApp = ({Component}) => {
