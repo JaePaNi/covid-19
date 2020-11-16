@@ -33,5 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 
+# backend
 backend/security.js
 backend/node_modules

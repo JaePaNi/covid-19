@@ -14,19 +14,20 @@ const HOST_FOREIGN = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/get
 
 const requestUrl = `${HOST_INFCTION_STATUS}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=20201101&endCreateDt=20201113`;
 
-const changeJson = (req, res, next) => {
+const changeJson = async () => {
     console.log('changeJson func');
-    request.get(requestUrl, (err, res, body) => {
+    await request.get(requestUrl, (err, res, body) => {
         if (err) console.log('Error!!!', err);
         else {
             if (res.statusCode === 200) {
                 const result = body;
-                const xmlToJson = convert.xml2json(result, {compact: true, spaces: 4});
-                return xmlToJson;
+                return console.log('return');
+                // console.log(result);
+                // const xmlToJson = convert.xml2json(result, {compact: true, spaces: 4});
+                // return xmlToJson;
             }
         }
-    })
-    next();
+    });
 };
 
-module.exports = changeJson;
+module.exports = changeJson();
