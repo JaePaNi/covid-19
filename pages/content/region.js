@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 
 import {useDispatch, useSelector} from "react-redux";
 
-import {region} from "../../reducer/region/action";
+import {regionAction} from "../../reducer/region/action";
 
 const Region = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Region = () => {
 
     const onClickBtn = useCallback(() => {
         console.log('dispatch click');
-        dispatch(region());
+        dispatch(regionAction());
     }, []);
 
     return (

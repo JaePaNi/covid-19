@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 
 import {useDispatch, useSelector} from "react-redux";
 
-import {ageGender} from "../../reducer/ageGender/action";
+import {ageGenderAction} from "../../reducer/ageGender/action";
 
 const AgeGender = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const AgeGender = () => {
 
     const onClickBtn = useCallback(() => {
         console.log('dispatch click');
-        dispatch(ageGender());
+        dispatch(ageGenderAction());
     }, []);
 
     return (

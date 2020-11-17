@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 
 import {useDispatch, useSelector} from "react-redux";
 
-import {foreign} from "../../reducer/foreign/action";
+import {foreignAction} from "../../reducer/foreign/action";
 
 const Foreign = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Foreign = () => {
 
     const onClickBtn = useCallback(() => {
         console.log('dispatch click');
-        dispatch(foreign());
+        dispatch(foreignAction());
     }, []);
 
     return (

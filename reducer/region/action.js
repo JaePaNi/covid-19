@@ -1,7 +1,7 @@
 import {regionApi} from "./api";
 import {REGION_STATUS, REGION_STATUS_SUCCESS, REGION_STATUS_ERROR} from "../actionType";
 
-export const region = () => async (dispatch) => {
+export const regionAction = () => async (dispatch) => {
     const data = await regionApi();
     const parseJson = JSON.parse(data.data);
     const payload = parseJson.response;

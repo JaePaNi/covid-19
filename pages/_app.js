@@ -13,7 +13,7 @@ const MyApp = ({Component}) => {
         <>
             <Headers/>
             <Layout>
-                <Layout>
+                <Layout style={{backgroundColor: '#ffffff'}}>
                     <SiderContent/>
                     <Component/>
                 </Layout>

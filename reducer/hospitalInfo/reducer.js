@@ -7,60 +7,18 @@ const initialState = {
             "items": {
                 "item": [
                     {
-                        "accDefRate": {
-                            "_text": null
-                        },
-                        "accExamCnt": {
-                            "_text": null
-                        },
-                        "accExamCompCnt": {
-                            "_text": null
-                        },
-                        "careCnt": {
-                            "_text": null
-                        },
-                        "clearCnt": {
-                            "_text": null
-                        },
-                        "createDt": {
-                            "_text": null
-                        },
-                        "deathCnt": {
-                            "_text": null
-                        },
-                        "decideCnt": {
-                            "_text": null
-                        },
-                        "examCnt": {
-                            "_text": null
-                        },
-                        "resutlNegCnt": {
-                            "_text": null
-                        },
-                        "seq": {
-                            "_text": null
-                        },
-                        "stateDt": {
-                            "_text": null
-                        },
-                        "stateTime": {
-                            "_text": null
-                        },
-                        "updateDt": {
-                            "_text": null
-                        }
+                        "adtFrDd": {"_text": null},
+                        "sgguNm": {"_text": null},
+                        "sidoNm": {"_text": null},
+                        "spclAdmTyCd": {"_text": null},
+                        "telno": {"_text": null},
+                        "yadmNm": {"_text": null},
                     }
                 ]
             },
-            "numOfRows": {
-                "_text": null
-            },
-            "pageNo": {
-                "_text": null
-            },
-            "totalCount": {
-                "_text": null
-            }
+            "numOfRows": {"_text": null},
+            "pageNo": {"_text": null},
+            "totalCount": {"_text": null}
         }
     }
 }
