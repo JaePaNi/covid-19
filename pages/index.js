@@ -1,16 +1,20 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import { infctionStatusAction, infctionStatusOneAction } from '../reducer/insfection_status/action';
+import {useDispatch, useSelector} from "react-redux";
+import {infctionStatusAction, infctionStatusOneAction} from '../reducer/insfection_status/action';
 
-import { Switch } from 'antd';
+import {Switch} from 'antd';
 
-import NccBar from "../components/index/bar/nccBar";
-import NccLine from "../components/index/line/nccLine";
-import Care from '../components/index/bar/careBar';
-import Death from '../components/index/bar/deathBar';
-import AccExam from '../components/index/bar/accExamBar';
-import ResultNeg from '../components/index/bar/resultNegBar';
+import NccBar from "../components/insfection_status/bar/nccBar";
+import NccLine from "../components/insfection_status/line/nccLine";
+import CareBar from '../components/insfection_status/bar/careBar';
+import CareLine from "../components/insfection_status/line/careLine";
+import DeathBar from '../components/insfection_status/bar/deathBar';
+import DeathLine from "../components/insfection_status/line/deathLine";
+import AccExamBar from '../components/insfection_status/bar/accExamBar';
+import AccExamLine from '../components/insfection_status/line/accExamLine';
+import ResultNegBar from '../components/insfection_status/bar/resultNegBar';
+import ResultNegLine from "../components/insfection_status/line/resultNegLine";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -28,13 +32,8 @@ export default function Home() {
     }, []);
 
     useEffect(() => {
-        console.log('###', data);
-        console.log(getItemOne);
-    }, [data]);
-
-    useEffect(() => {
         getItemStatus === true &&
-            setData([getItem.body.items.item.map((e, index) => ({
+        setData([getItem.body.items.item.map((e, index) => ({
                 date: e.stateDt._text,
                 일일_확진자_수: index !== getItem.body.items.item.length - 1
                     ? e.decideCnt._text - getItem.body.items.item[index + 1].decideCnt._text
@@ -63,42 +62,55 @@ export default function Home() {
                 //     ? e.careCnt._text - getItem.body.items.item[index + 1].careCnt._text
                 //     : e.careCnt._text - getItemOne.body.items.item.careCnt._text
             })
-            )]);
+        )]);
     }, [getItem]);
 
-    const onChange = useCallback((e) => {
+    const onChangeLineBar = useCallback((e) => {
         setChartSelect(e);
     }, []);
 
     return (
-        <div style={{ textAlign: 'center' }}>
-            <div style={{ margin: '15px 0 70px 0' }}>
+        <div style={{textAlign: 'center'}}>
+            <div style={{margin: '10px 0 20px 0'}}>
+                <span style={{marginRight: 10}}>라인차트</span>
+                <Switch defaultChecked onChange={onChangeLineBar}/>
+                <span style={{marginLeft: 10}}>바차트</span>
+            </div>
+            <div style={{margin: '15px 0 70px 0'}}>
                 <h1>일일확진자 수</h1>
-                <div style={{ margin: '10px 0 20px 0' }}>
-                    <span style={{ marginRight: 10 }}>라인차트</span>
-                    <Switch defaultChecked onChange={onChange} />
-                    <span style={{ marginLeft: 10 }}>바차트</span>
-                </div>
                 {
-                    chartSelect === true ? <NccBar data={data} getItemStatus={getItemStatus} /> : <NccLine data={data} getItemStatus={getItemStatus} />
+                    chartSelect === true ? <NccBar data={data} getItemStatus={getItemStatus}/> :
+                        <NccLine data={data} getItemStatus={getItemStatus}/>
                 }
             </div>
-            <div style={{ margin: '15px 0 70px 0' }}>
+            <div style={{margin: '15px 0 70px 0'}}>
                 <h1>검사자 수</h1>
-                <AccExam data={data} getItemStatus={getItemStatus} />
+                {
+                    chartSelect === true ? <AccExamBar data={data} getItemStatus={getItemStatus}/> :
+                        <AccExamLine data={data} getItemStatus={getItemStatus}/>
+                }
             </div>
-            <div style={{ margin: '15px 0 70px 0' }}>
+            <div style={{margin: '15px 0 70px 0'}}>
                 <h1>결과 음성 수</h1>
-                <ResultNeg data={data} getItemStatus={getItemStatus} />
+                {
+                    chartSelect === true ? <ResultNegBar data={data} getItemStatus={getItemStatus}/> :
+                        <ResultNegLine data={data} getItemStatus={getItemStatus}/>
+                }
             </div>
-            <div style={{ margin: '15px 0 70px 0' }}>
+            <div style={{margin: '15px 0 70px 0'}}>
                 <h1>치료중인 환자 수</h1>
-                <Care data={data} getItemStatus={getItemStatus} />
+                {
+                    chartSelect === true ? <CareBar data={data} getItemStatus={getItemStatus}/> :
+                        <CareLine data={data} getItemStatus={getItemStatus}/>
+                }
             </div>
 
-            <div style={{ margin: '15px 0 70px 0' }}>
+            <div style={{margin: '15px 0 70px 0'}}>
                 <h1>사망자 수</h1>
-                <Death data={data} getItemStatus={getItemStatus} />
+                {
+                    chartSelect === true ? <DeathBar data={data} getItemStatus={getItemStatus}/> :
+                        <DeathLine data={data} getItemStatus={getItemStatus}/>
+                }
             </div>
         </div>
     )

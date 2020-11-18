@@ -20,16 +20,16 @@ DATE_LASTWEEK = DATE_LASTWEEK.length === 1 ? '0' + DATE_LASTWEEK : DATE_LASTWEEK
 DATE_LASTWEEK_ONE = DATE_LASTWEEK_ONE.length === 1 ? '0' + DATE_LASTWEEK_ONE : DATE_LASTWEEK_ONE;
 
 //이번주 날짜 파싱
-let YEAR_THISWEEK = date.getFullYear().toString();
-let MONTH_THISWEEK = (date.getMonth() + 1).toString();
-let DATE_THISWEEK = date.getDate().toString();
-MONTH_THISWEEK = MONTH_THISWEEK.length === 1 ? '0' + MONTH_THISWEEK : MONTH_THISWEEK;
-DATE_THISWEEK = DATE_THISWEEK.length === 1 ? '0' + DATE_THISWEEK : DATE_THISWEEK;
+let YEAR = date.getFullYear().toString();
+let MONTH = (date.getMonth() + 1).toString();
+let DATE = date.getDate().toString();
+MONTH = MONTH.length === 1 ? '0' + MONTH : MONTH;
+DATE = DATE.length === 1 ? '0' + DATE : DATE;
 
 //일주일 전, 이번주 날짜
 const LAST_WEEK = YEAR_LASTWEEK + MONTH_LASTWEEK + DATE_LASTWEEK;
 const LAST_WEEK_ONE = YEAR_LASTWEEK + MONTH_LASTWEEK + DATE_LASTWEEK_ONE;
-const THIS_WEEK = YEAR_THISWEEK + MONTH_THISWEEK + DATE_THISWEEK;
+const TODAY = YEAR + MONTH + DATE;
 
 // 코로나19 감염현황
 const HOST_INFCTION_STATUS = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson';
@@ -45,12 +45,14 @@ const HOST_HOSPITAL_INFO = 'http://apis.data.go.kr/B551182/pubReliefHospService/
 const HOST_SAFETY_NEWS = 'http://apis.data.go.kr/1262000/SafetyNewsList/getCountrySafetyNewsList';
 
 
-const requestUrl_HOST_INFCTION_STATUS = `${HOST_INFCTION_STATUS}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${THIS_WEEK}`;
+const requestUrl_HOST_INFCTION_STATUS = `${HOST_INFCTION_STATUS}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${TODAY}`;
 const requestUrl_HOST_INFCTION_STATUS_ONE = `${HOST_INFCTION_STATUS}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK_ONE}&endCreateDt=${LAST_WEEK_ONE}`;
 
-const requestUrl_HOST_REGION = `${HOST_REGION}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${THIS_WEEK}`;
-const requestUrl_HOST_AGE_GENDER = `${HOST_AGE_GENDER}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${THIS_WEEK}`;
-const requestUrl_HOST_FOREIGN = `${HOST_FOREIGN}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${THIS_WEEK}`;
+const requestUrl_HOST_REGION = `${HOST_REGION}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${TODAY}`;
+const requestUrl_HOST_REGION_TODAY = `${HOST_REGION}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${TODAY}&endCreateDt=${TODAY}`;
+
+const requestUrl_HOST_AGE_GENDER = `${HOST_AGE_GENDER}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${TODAY}`;
+const requestUrl_HOST_FOREIGN = `${HOST_FOREIGN}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${TODAY}`;
 const requestUrl_HOST_HOSPITAL_INFO = `${HOST_HOSPITAL_INFO}?ServiceKey=${AUTH_KEY}&numOfRows=1016`;
 const requestUrl_HOST_SAFETY_NEWS = `${HOST_SAFETY_NEWS}?serviceKey=${AUTH_KEY}&numOfRows=310`;
 
@@ -69,12 +71,19 @@ router.get('/HOST_INFCTION_STATUS', cors(), async (req, res) => {
 router.get('/HOST_INFCTION_STATUS_ONE', cors(), async (req, res) => {
     const result = await rp(requestUrl_HOST_INFCTION_STATUS_ONE).then((data) => data).catch((e) => console.log(e));
     const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
-    console.log('xmlToJson send HOST_INFCTION_STATUS_ONE ::', xmlToJson);
+    console.log('xmlToJson send HOST_INFCTION_STATUS_ONE ::');
     res.json(xmlToJson);
 });
 
 router.get('/HOST_REGION', cors(), async (req, res) => {
     const result = await rp(requestUrl_HOST_REGION).then((data) => data).catch((e) => console.log(e));
+    const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
+    console.log('xmlToJson send HOST_REGION ::');
+    res.json(xmlToJson);
+});
+
+router.get('/HOST_REGION_TODAY', cors(), async (req, res) => {
+    const result = await rp(requestUrl_HOST_REGION_TODAY).then((data) => data).catch((e) => console.log(e));
     const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
     console.log('xmlToJson send HOST_REGION ::');
     res.json(xmlToJson);

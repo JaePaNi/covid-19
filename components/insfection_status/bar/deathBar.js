@@ -1,6 +1,6 @@
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 
-const Death = (data, getItemStatus) => {
+const DeathBar = (data, getItemStatus) => {
     return (
         <>
             {
@@ -19,4 +19,4 @@ const Death = (data, getItemStatus) => {
     )
 }
 
-export default Death;
+export default DeathBar;

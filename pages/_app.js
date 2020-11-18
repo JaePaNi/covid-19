@@ -3,19 +3,19 @@ import SiderContent from '../common/SiderContent';
 
 import reducer from '../reducer';
 import withRedux from 'next-redux-wrapper';
-import {createStore, compose, applyMiddleware} from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import {Layout} from 'antd';
+import { Layout } from 'antd';
 
-const MyApp = ({Component}) => {
+const MyApp = ({ Component }) => {
     return (
         <>
-            <Headers/>
+            <Headers />
             <Layout>
-                <Layout style={{backgroundColor: '#ffffff'}}>
-                    <SiderContent/>
-                    <Component/>
+                <Layout style={{ backgroundColor: '#ffffff' }}>
+                    <SiderContent />
+                    <Component />
                 </Layout>
             </Layout>
         </>
