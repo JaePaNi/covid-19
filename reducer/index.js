@@ -1,4 +1,4 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 
 import insfectionStatus from './insfection_status/reducer';
 import ageGender from './ageGender/reducer';
