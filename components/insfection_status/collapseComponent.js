@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { infctionStatusAction, infctionStatusOneAction } from '../../reducer/insfection_status/action';
 import { Collapse, List } from 'antd';
 
-const CollapseComponent = () => {
+const CollapseComponent = ({ posts }) => {
     const dispatch = useDispatch();
 
     const getItem = useSelector(state => state.insfectionStatus.data);
@@ -15,12 +15,17 @@ const CollapseComponent = () => {
         dispatch(infctionStatusOneAction());
     }, []);
 
+    useEffect(() => {
+        console.log('posts ::: ', posts);
+    }, [posts]);
+
     return (
         <Collapse style={{ width: 1200 }} bordered={false} ghost="true" defaultActiveKey="0">
             {
                 getItemStatus === true &&
                 getItem.body.items.item.map((e, index) => (
-                    <Collapse.Panel style={{ padding: '10px 0 20px 0' }} header={`기준일시 :: ${e.stateDt._text}`} key={index}>
+                    <Collapse.Panel style={{ padding: '10px 0 20px 0' }} header={`기준일시 :: ${e.stateDt._text}`}
+                        key={index}>
                         <List itemLayout="horizontal">
                             <List.Item>
                                 <List.Item.Meta title="확진자" description={e.decideCnt._text} />

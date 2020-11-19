@@ -61,7 +61,8 @@ const requestUrl_HOST_FOREIGN_TODAY = `${HOST_FOREIGN}?serviceKey=${AUTH_KEY}&nu
 
 const requestUrl_HOST_HOSPITAL_INFO = `${HOST_HOSPITAL_INFO}?ServiceKey=${AUTH_KEY}&numOfRows=1016`;
 // const requestUrl_HOST_HOSPITAL_INFO = `${HOST_HOSPITAL_INFO}?ServiceKey=${AUTH_KEY}&numOfRows=10`;
-const requestUrl_HOST_SAFETY_NEWS = `${HOST_SAFETY_NEWS}?serviceKey=${AUTH_KEY}&numOfRows=310`;
+const requestUrl_HOST_SAFETY_NEWS = `${HOST_SAFETY_NEWS}?serviceKey=${AUTH_KEY}&numOfRows=2`;
+// const requestUrl_HOST_SAFETY_NEWS = `${HOST_SAFETY_NEWS}?serviceKey=${AUTH_KEY}&numOfRows=310`;
 
 router.get('/', (req, res) => {
     res.send('hello this is openapi page');

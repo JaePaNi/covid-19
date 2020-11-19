@@ -12,7 +12,7 @@ export default function Home() {
             <Tabs.TabPane tab="표 차트" key="1">
                 <CollapseComponent />
             </Tabs.TabPane>
-            <Tabs.TabPane tab="바, 라인 차트" key="2">
+            <Tabs.TabPane tab="바/라인 차트" key="2">
                 <BarLineComponent />
             </Tabs.TabPane>
         </Tabs>

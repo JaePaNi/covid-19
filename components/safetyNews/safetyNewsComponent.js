@@ -1,4 +1,4 @@
-import { List } from 'antd';
+import {List} from 'antd';
 
 const SafetyNewsComponent = (data) => {
     return (

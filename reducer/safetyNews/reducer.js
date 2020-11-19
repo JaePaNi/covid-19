@@ -40,7 +40,6 @@ const reducer = (state = initialState, action) => {
         }
         case SAFETYNEWS_STATUS_SUCCESS: {
             console.log('SAFETYNEWS_STATUS TEST_SUCCESS');
-            console.log('###payload### ::', action.payload);
             return {
                 ...state,
                 status: true,

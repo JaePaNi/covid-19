@@ -6,8 +6,6 @@ export const safetyNewsAction = () => async (dispatch) => {
     const parseJson = JSON.parse(data.data);
     const payload = parseJson.response;
 
-    console.log('payload :: ', payload);
-
     dispatch({ type: SAFETYNEWS_STATUS });
     try {
         dispatch({ type: SAFETYNEWS_STATUS_SUCCESS, payload });
