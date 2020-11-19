@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Row, Col, Typography, Layout } from 'antd';
+import { Layout } from 'antd';
 
 const { Header } = Layout;
 
@@ -18,9 +18,9 @@ const Headers = () => {
                     <Typography.Title level={3}>COVID19</Typography.Title>
                 </Col>
             </Row> */}
-            <Header style={{ backgroundColor: '#212121', display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Header style={{ backgroundColor: '#001529', display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {/* <Typography.Title level={1}>COVID19</Typography.Title> */}
-                <h1 style={{ color: 'white' }}>COVID-19 KOREA</h1>
+                <h1 style={{ color: 'white' }}>COVID-19</h1>
             </Header>
         </>
     )

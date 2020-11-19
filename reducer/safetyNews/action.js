@@ -1,5 +1,5 @@
-import {safetyNewsApi} from "./api";
-import {SAFETYNEWS_STATUS, SAFETYNEWS_STATUS_SUCCESS, SAFETYNEWS_STATUS_ERROR} from "../actionType";
+import { safetyNewsApi } from "./api";
+import { SAFETYNEWS_STATUS, SAFETYNEWS_STATUS_SUCCESS, SAFETYNEWS_STATUS_ERROR } from "../actionType";
 
 export const safetyNewsAction = () => async (dispatch) => {
     const data = await safetyNewsApi();
@@ -8,10 +8,10 @@ export const safetyNewsAction = () => async (dispatch) => {
 
     console.log('payload :: ', payload);
 
-    dispatch({type: SAFETYNEWS_STATUS});
+    dispatch({ type: SAFETYNEWS_STATUS });
     try {
-        dispatch({type: SAFETYNEWS_STATUS_SUCCESS, payload});
+        dispatch({ type: SAFETYNEWS_STATUS_SUCCESS, payload });
     } catch (e) {
-        dispatch({type: SAFETYNEWS_STATUS_ERROR, e});
+        dispatch({ type: SAFETYNEWS_STATUS_ERROR, e });
     }
 }

@@ -52,8 +52,15 @@ const requestUrl_HOST_REGION = `${HOST_REGION}?serviceKey=${AUTH_KEY}&numOfRows=
 const requestUrl_HOST_REGION_TODAY = `${HOST_REGION}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${TODAY}&endCreateDt=${TODAY}`;
 
 const requestUrl_HOST_AGE_GENDER = `${HOST_AGE_GENDER}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${TODAY}`;
+const requestUrl_HOST_AGE_GENDER_TODAY = `${HOST_AGE_GENDER}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${TODAY}&endCreateDt=${TODAY}`;
+const requestUrl_HOST_AGE_GENDER_YESTERDAY = `${HOST_AGE_GENDER}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=20201118&endCreateDt=20201118`;
+
+
 const requestUrl_HOST_FOREIGN = `${HOST_FOREIGN}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${LAST_WEEK}&endCreateDt=${TODAY}`;
+const requestUrl_HOST_FOREIGN_TODAY = `${HOST_FOREIGN}?serviceKey=${AUTH_KEY}&numOfRows=10&startCreateDt=${TODAY}&endCreateDt=${TODAY}`;
+
 const requestUrl_HOST_HOSPITAL_INFO = `${HOST_HOSPITAL_INFO}?ServiceKey=${AUTH_KEY}&numOfRows=1016`;
+// const requestUrl_HOST_HOSPITAL_INFO = `${HOST_HOSPITAL_INFO}?ServiceKey=${AUTH_KEY}&numOfRows=10`;
 const requestUrl_HOST_SAFETY_NEWS = `${HOST_SAFETY_NEWS}?serviceKey=${AUTH_KEY}&numOfRows=310`;
 
 router.get('/', (req, res) => {
@@ -96,10 +103,31 @@ router.get('/HOST_AGE_GENDER', cors(), async (req, res) => {
     res.json(xmlToJson);
 });
 
+router.get('/HOST_AGE_GENDER_TODAY', cors(), async (req, res) => {
+    const result = await rp(requestUrl_HOST_AGE_GENDER_TODAY).then((data) => data).catch((e) => console.log(e));
+    const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
+    console.log('xmlToJson send HOST_AGE_GENDER_TODAY ::');
+    res.json(xmlToJson);
+});
+
+router.get('/HOST_AGE_GENDER_YESTERDAY', cors(), async (req, res) => {
+    const result = await rp(requestUrl_HOST_AGE_GENDER_YESTERDAY).then((data) => data).catch((e) => console.log(e));
+    const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
+    console.log('xmlToJson send HOST_AGE_GENDER_TODAY ::');
+    res.json(xmlToJson);
+});
+
 router.get('/HOST_FOREIGN', cors(), async (req, res) => {
     const result = await rp(requestUrl_HOST_FOREIGN).then((data) => data).catch((e) => console.log(e));
     const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
     console.log('xmlToJson send HOST_FOREIGN ::');
+    res.json(xmlToJson);
+});
+
+router.get('/HOST_FOREIGN_TODAY', cors(), async (req, res) => {
+    const result = await rp(requestUrl_HOST_FOREIGN_TODAY).then((data) => data).catch((e) => console.log(e));
+    const xmlToJson = convert.xml2json(result, { compact: true, spaces: 4 });
+    console.log('xmlToJson send HOST_FOREIGN_TODAY ::');
     res.json(xmlToJson);
 });
 

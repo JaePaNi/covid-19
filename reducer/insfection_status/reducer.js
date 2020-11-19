@@ -1,5 +1,7 @@
 import { INFECTION_STATUS, INFECTION_STATUS_SUCCESS, INFECTION_STATUS_ERROR, INFECTION_STATUS_ONE_SUCCESS, INFECTION_STATUS_ONE } from "../actionType";
 
+import HYDRATE from 'next-redux-wrapper';
+
 const initialState = {
     status: false,
     data: {
@@ -87,6 +89,13 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case HYDRATE: {
+            console.log('ageGender_reducer_HYDRATE');
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
         case INFECTION_STATUS: {
             console.log('INFECTION_STATUS TEST');
             return {

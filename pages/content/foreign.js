@@ -1,8 +1,9 @@
-import React, {useCallback} from 'react';
+import React, { useEffect } from 'react';
 
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { foreignTodayAction } from "../../reducer/foreign/action";
 
-import {foreignAction} from "../../reducer/foreign/action";
+import ForeignComponent from '../../components/foreign/foreignComponent';
 
 const Foreign = () => {
     const dispatch = useDispatch();
@@ -10,22 +11,11 @@ const Foreign = () => {
     const getItem = useSelector(state => state.foreign.data);
     const getItemStatus = useSelector(state => state.foreign.status);
 
-    const onClickBtn = useCallback(() => {
-        console.log('dispatch click');
-        dispatch(foreignAction());
+    useEffect(() => {
+        dispatch(foreignTodayAction());
     }, []);
 
-    return (
-        <div>
-            <button onClick={onClickBtn}>Foreign</button>
-            {
-                getItemStatus !== false ?
-                    <div>{getItem.body.items.item.map((e, index) => (
-                        <p key={index}>{e.areaNm._text}</p>
-                    ))}</div> : <p>getItemStatus is null</p>
-            }
-        </div>
-    )
+    return <ForeignComponent data={getItem} status={getItemStatus} />
 }
 
 export default Foreign;

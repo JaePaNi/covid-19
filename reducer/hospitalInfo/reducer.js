@@ -7,11 +7,17 @@ const initialState = {
             "items": {
                 "item": [
                     {
+                        //운영가능일자
                         "adtFrDd": {"_text": null},
+                        //시 군 구명
                         "sgguNm": {"_text": null},
+                        // 시 도명
                         "sidoNm": {"_text": null},
+                        // 구분코드
                         "spclAdmTyCd": {"_text": null},
+                        // 전화번호
                         "telno": {"_text": null},
+                        // 기관명
                         "yadmNm": {"_text": null},
                     }
                 ]

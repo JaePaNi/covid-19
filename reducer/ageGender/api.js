@@ -6,3 +6,19 @@ export const ageGenderApi = () => {
         .catch(e => console.log('error : ', e));
     return res;
 }
+
+export const ageGenderTodayApi = () => {
+    console.log('Today');
+    const res = axios.get('http://localhost:5000/openapi/HOST_AGE_GENDER_TODAY')
+        .then(data => data)
+        .catch(e => console.log('error : ', e));
+    return res;
+}
+
+export const ageGenderYesterdayApi = () => {
+    console.log('Yesterday');
+    const res = axios.get('http://localhost:5000/openapi/HOST_AGE_GENDER_YESTERDAY')
+        .then(data => data)
+        .catch(e => console.log('error : ', e));
+    return res;
+}

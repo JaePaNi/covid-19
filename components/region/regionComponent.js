@@ -1,5 +1,3 @@
-import React, { useCallback, useEffect } from 'react'
-
 import { Collapse, List } from 'antd';
 
 const RegionComponent = (data) => {

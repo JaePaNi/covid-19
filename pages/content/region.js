@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
 import { regionActionToday } from "../../reducer/region/action";

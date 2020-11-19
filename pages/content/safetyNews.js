@@ -1,8 +1,9 @@
-import React, {useCallback} from 'react';
+import React, { useEffect } from 'react';
 
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import SafetyNewsComponent from '../../components/safetyNews/safetyNewsComponent';
 
-import {safetyNewsAction} from "../../reducer/safetyNews/action";
+import { safetyNewsAction } from "../../reducer/safetyNews/action";
 
 const SafetyNews = () => {
     const dispatch = useDispatch();
@@ -10,22 +11,11 @@ const SafetyNews = () => {
     const getItem = useSelector(state => state.safetyNews.data);
     const getItemStatus = useSelector(state => state.safetyNews.status);
 
-    const onClickBtn = useCallback(() => {
-        console.log('dispatch click');
+    useEffect(() => {
         dispatch(safetyNewsAction());
     }, []);
 
-    return (
-        <div>
-            <button onClick={onClickBtn}>SafetyNews</button>
-            {
-                getItemStatus !== false ?
-                    <div>{getItem.body.items.item.map((e, index) => (
-                        <p key={index}>{e.title._text}</p>
-                    ))}</div> : <p>getItemStatus is null</p>
-            }
-        </div>
-    )
+    return <SafetyNewsComponent data={getItem} status={getItemStatus} />
 }
 
 export default SafetyNews;

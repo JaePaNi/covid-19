@@ -1,5 +1,7 @@
 import { REGION_STATUS, REGION_STATUS_SUCCESS, REGION_STATUS_ERROR, REGION_STATUS_TODAY, REGION_STATUS_TODAY_SUCCESS, REGION_STATUS_TODAY_ERROR } from "../actionType";
 
+import HYDRATE from 'next-redux-wrapper';
+
 const initialState = {
     status: false,
     data: {
@@ -49,6 +51,13 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case HYDRATE: {
+            console.log('ageGender_reducer_HYDRATE');
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
         // case REGION_STATUS: {
         //     console.log('REGION_STATUS TEST');
         //     return {
