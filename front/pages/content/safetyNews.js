@@ -1,54 +1,26 @@
-// import React, { useEffect } from 'react';
-//
-// import { useDispatch, useSelector } from "react-redux";
-// import SafetyNewsComponent from '../../components/safetyNews/safetyNewsComponent';
-//
-// import { safetyNewsAction } from "../../reducer/safetyNews/action";
+import { List } from 'antd';
 
 const SafetyNews = ({ result }) => {
-    // const dispatch = useDispatch();
-    //
-    // const getItem = useSelector(state => state.safetyNews.data);
-    // const getItemStatus = useSelector(state => state.safetyNews.status);
-    //
-    // useEffect(() => {
-    //     dispatch(safetyNewsAction());
-    // }, []);
-    //
-    // return <SafetyNewsComponent data={getItem} status={getItemStatus} />
-
-    // return <div>{esult.respronse.body.items.item.map(e => <p>{e.content._text}</p>)} hi</div>
-    return <div>{console.log(result)} hi</div>
+    return (
+        <List itemLayout="vertical" style={{ width: 1200 }}>
+            {result.response.body.items.item.map(e => (
+                <List.Item>
+                    <h1>{e.content._text}</h1>
+                    <List.Item.Meta title="작성일" description={e.wrtDt._text} />
+                    <List.Item.Meta title="국가명" description={e.countryName._text} />
+                    <List.Item.Meta title="내용" description={e.content._text} />
+                </List.Item>
+            ))}
+        </List>
+    )
 }
 
-// export async function getServerSideProps(context) {
-//     console.log('context ::: ', Object.keys(context));
-//     const res = await fetch('http://localhost:5000/openapi/HOST_SAFETY_NEWS');
-//     const data = await res.json();
-
-//     // console.log('getStaticProps res ::: ', res);
-//     // console.log('getStaticProps posts ::: ', data);
-
-//     return {
-//         props: {
-//             data,
-//         }
-//     }
-// }
-
-export async function getStaticProps(context) {
-    console.log('context ::: ', Object.keys(context));
+export async function getServerSideProps() {
     const res = await fetch('http://localhost:5000/openapi/HOST_SAFETY_NEWS');
     const data = await res.json();
-
     const result = JSON.parse(data);
-    console.log(result.response.body.items.item.map(e => e))
 
-    return {
-        props: {
-            result,
-        }
-    }
+    return { props: { result } }
 }
 
 export default SafetyNews;

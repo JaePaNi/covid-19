@@ -10,14 +10,14 @@ import wrapper from '../reducer/configureStroe';
 
 import { Layout } from 'antd';
 
-const MyApp = ({ Component }) => {
+const MyApp = ({ Component, pageProps }) => {
     return (
         <>
             <Headers />
             <Layout>
                 <Layout style={{ backgroundColor: '#ffffff' }}>
                     <SiderContent />
-                    <Component />
+                    <Component {...pageProps}/>
                 </Layout>
             </Layout>
         </>
@@ -25,7 +25,7 @@ const MyApp = ({ Component }) => {
 }
 
 export default wrapper.withRedux(MyApp);
-/* 
+/*
     withRedux는 예전방식이라 wrapper 방식으로 변경
 
     주의!!
